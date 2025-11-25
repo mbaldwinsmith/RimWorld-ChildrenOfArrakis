@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>Arrakis_Windtrap</defName>
+    <label>windtrap (prototype)</label>
+    <description>Placeholder moisture condenser for Arrakis. Replace stats and comps once the hydration loop is wired.</description>
+    <thingClass>Building</thingClass>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Things/Buildings/Arrakis_Windtrap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <costStuffCount>120</costStuffCount>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>30</pathCost>
+    <fillPercent>0.35</fillPercent>
+    <flammability>1.0</flammability>
+    <selectable>true</selectable>
+    <seeThroughFog>true</seeThroughFog>
+    <rotatable>true</rotatable>
+    <designationCategory>Production</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>240</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>-8</Beauty>
+      <Mass>60</Mass>
+    </statBases>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>Arrakis_Catchbasin</defName>
+    <label>catchbasin (prototype)</label>
+    <description>Placeholder underground reservoir for Arrakis hydration. Replace with custom comp logic once water routing is ready.</description>
+    <thingClass>Building</thingClass>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Things/Buildings/Arrakis_Catchbasin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <costStuffCount>80</costStuffCount>
+    <costList>
+      <Steel>90</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.65</fillPercent>
+    <selectable>true</selectable>
+    <seeThroughFog>true</seeThroughFog>
+    <rotatable>true</rotatable>
+    <designationCategory>Misc</designationCategory>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <statBases>
+      <WorkToBuild>1800</WorkToBuild>
+      <MaxHitPoints>280</MaxHitPoints>
+      <Flammability>0.8</Flammability>
+      <Beauty>-6</Beauty>
+      <Mass>85</Mass>
+    </statBases>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+  </ThingDef>
+
+</Defs>

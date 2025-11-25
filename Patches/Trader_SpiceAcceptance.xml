@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <!-- Make spice highly tradeable and valuable -->
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/tradeability</xpath>
+          <match Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/tradeability</xpath>
+            <value>
+              <tradeability>All</tradeability>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]</xpath>
+            <value>
+              <tradeability>All</tradeability>
+            </value>
+          </nomatch>
+        </li>
+
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/statBases/MarketValue</xpath>
+          <match Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/statBases/MarketValue</xpath>
+            <value>
+              <MarketValue>300</MarketValue>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]</xpath>
+            <value>
+              <statBases>
+                <MarketValue>300</MarketValue>
+              </statBases>
+            </value>
+          </nomatch>
+        </li>
+
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/tradeTags</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]/tradeTags</xpath>
+            <value>
+              <li>ArrakisSpice</li>
+              <li>ExoticMisc</li>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_SpiceMelange"]</xpath>
+            <value>
+              <tradeTags>
+                <li>ArrakisSpice</li>
+                <li>ExoticMisc</li>
+              </tradeTags>
+            </value>
+          </nomatch>
+        </li>
+
+        <!-- Give all traders a tag-based generator so spice appears in stocks -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/TraderKindDef/stockGenerators</xpath>
+          <value>
+            <li Class="StockGenerator_Tag">
+              <tag>ArrakisSpice</tag>
+              <countRange>1~6</countRange>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

@@ -1,0 +1,10 @@
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Assemblies\ChildrenOfArrakis.dll
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Assemblies\ChildrenOfArrakis.pdb
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.csproj.AssemblyReference.cache
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.AssemblyInfoInputs.cache
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.AssemblyInfo.cs
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.csproj.CoreCompileInputs.cache
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.sourcelink.json
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.dll
+C:\Users\ecoch\OneDrive\Documents\Dev\JavaScript\RimWorld-ChildrenOfArrakis\Source\obj\Release\ChildrenOfArrakis.pdb

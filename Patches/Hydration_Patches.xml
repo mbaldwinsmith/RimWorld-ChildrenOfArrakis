@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Dubs Bad Hygiene</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/NeedDef[defName="DubsBadHygiene_Thirst"]/fallPerDay</xpath>
+          <value>
+            <fallPerDay>1.6</fallPerDay>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/NeedDef[defName="DubsBadHygiene_Thirst"]/fallPerDayWhileSleeping</xpath>
+          <value>
+            <fallPerDayWhileSleeping>1.2</fallPerDayWhileSleeping>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
