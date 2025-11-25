@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Children of Arrakis</name>
+  <packageId>Arrakis.ChildrenOfArrakis</packageId>
+  <author>Arrakis Mod Team</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+    Dune-inspired RimWorld overhaul scaffolding for Arrakis: biome, hydration, windtraps, stillsuits, spice, and worms. Placeholder content only; fill in Defs, patches, textures, and assemblies per ROADMAP/TASKS.
+  </description>
+</ModMetaData>
