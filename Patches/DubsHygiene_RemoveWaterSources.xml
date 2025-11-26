@@ -2,202 +2,283 @@
 <Patch>
   <Operation Class="PatchOperationFindMod">
     <mods>
-      <li>Dubs Bad Hygiene</li>
+      <li>dubwise.dubsbadhygiene</li>
     </mods>
     <match Class="PatchOperationSequence">
       <operations>
 
         <!-- Disable player placement of Dubs water-producing buildings (keep plumbing/toilets intact). -->
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_WaterWell"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterWell"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
-        </li>
+        <!-- Apply same disable + hide operations across known water-producing / water-using DH buildings. -->
+        <li Class="PatchOperationSequence">
+          <operations>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WaterWell"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterWell"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterWell"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
 
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_WaterTower"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTower"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
-        </li>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WaterTower"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTower"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTower"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
 
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
-        </li>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_RainWaterCollector"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
 
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_WaterPump"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterPump"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
-        </li>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WaterPump"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterPump"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterPump"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
 
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
-        </li>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTreatmentPlant"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
 
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="DBH_WaterTank"]</xpath>
-          <match Class="PatchOperationSequence">
-            <operations>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/buildableByPlayer</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/buildableByPlayer</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </match>
-                <nomatch Class="PatchOperationAdd">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTank"]</xpath>
-                  <value>
-                    <buildableByPlayer>false</buildableByPlayer>
-                  </value>
-                </nomatch>
-              </li>
-              <li Class="PatchOperationConditional">
-                <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/designationCategory</xpath>
-                <match Class="PatchOperationReplace">
-                  <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/designationCategory</xpath>
-                  <value>
-                    <designationCategory></designationCategory>
-                  </value>
-                </match>
-              </li>
-            </operations>
-          </match>
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WaterTank"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/buildableByPlayer</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/buildableByPlayer</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTank"]</xpath>
+                      <value>
+                        <buildableByPlayer>false</buildableByPlayer>
+                      </value>
+                    </nomatch>
+                  </li>
+                  <li Class="PatchOperationConditional">
+                    <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/designationCategory</xpath>
+                    <match Class="PatchOperationReplace">
+                      <xpath>Defs/ThingDef[defName="DBH_WaterTank"]/designationCategory</xpath>
+                      <value>
+                        <designationCategory></designationCategory>
+                      </value>
+                    </match>
+                  </li>
+                </operations>
+              </match>
+            </li>
+
+            <!-- Sinks/showers/baths that provide free water; disable them too. -->
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_Sink"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="DBH_Sink"]</xpath>
+                    <value>
+                      <buildableByPlayer>false</buildableByPlayer>
+                      <designationCategory></designationCategory>
+                    </value>
+                  </li>
+                </operations>
+              </match>
+            </li>
+
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_Shower"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="DBH_Shower"]</xpath>
+                    <value>
+                      <buildableByPlayer>false</buildableByPlayer>
+                      <designationCategory></designationCategory>
+                    </value>
+                  </li>
+                </operations>
+              </match>
+            </li>
+
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_Bath"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="DBH_Bath"]</xpath>
+                    <value>
+                      <buildableByPlayer>false</buildableByPlayer>
+                      <designationCategory></designationCategory>
+                    </value>
+                  </li>
+                </operations>
+              </match>
+            </li>
+
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WashBasin"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="DBH_WashBasin"]</xpath>
+                    <value>
+                      <buildableByPlayer>false</buildableByPlayer>
+                      <designationCategory></designationCategory>
+                    </value>
+                  </li>
+                </operations>
+              </match>
+            </li>
+
+            <li Class="PatchOperationConditional">
+              <xpath>Defs/ThingDef[defName="DBH_WashingMachine"]</xpath>
+              <match Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="DBH_WashingMachine"]</xpath>
+                    <value>
+                      <buildableByPlayer>false</buildableByPlayer>
+                      <designationCategory></designationCategory>
+                    </value>
+                  </li>
+                </operations>
+              </match>
+            </li>
+          </operations>
         </li>
 
       </operations>

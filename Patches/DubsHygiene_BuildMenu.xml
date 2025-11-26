@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>dubwise.dubsbadhygiene</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Arrakis_Windtrap"]</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_Windtrap"]</xpath>
+            <value>
+              <designationCategory>Hygiene</designationCategory>
+            </value>
+          </match>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Arrakis_Catchbasin"]</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Arrakis_Catchbasin"]</xpath>
+            <value>
+              <designationCategory>Hygiene</designationCategory>
+            </value>
+          </match>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

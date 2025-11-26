@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>Arrakis_ProcessDeathstill</defName>
+    <giverClass>ChildrenOfArrakis.WorkGiver_ProcessDeathstill</giverClass>
+    <workType>Hauling</workType>
+    <priorityInType>35</priorityInType>
+    <verb>process</verb>
+    <gerund>processing</gerund>
+    <emergency>false</emergency>
+  </WorkGiverDef>
+</Defs>

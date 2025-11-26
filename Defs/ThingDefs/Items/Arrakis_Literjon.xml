@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>Arrakis_Literjon</defName>
+    <label>literjon</label>
+    <description>One-litre water vessel for Arrakis hydration jobs. Placeholder ingestible until full hydration system is wired.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <stackLimit>50</stackLimit>
+    <graphicData>
+      <texPath>Placeholders/Single</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.6</Mass>
+      <MarketValue>12</MarketValue>
+      <Beauty>-1</Beauty>
+    </statBases>
+    <ingestible>
+      <foodType>Fluid</foodType>
+      <preferability>NeverForNutrition</preferability>
+      <ingestSound>Ingest_Beer</ingestSound>
+      <baseIngestTicks>120</baseIngestTicks>
+      <outcomeDoers>
+        <li Class="ChildrenOfArrakis.IngestionOutcomeDoer_Hydration">
+          <thirstRestore>0.35</thirstRestore>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+  </ThingDef>
+</Defs>

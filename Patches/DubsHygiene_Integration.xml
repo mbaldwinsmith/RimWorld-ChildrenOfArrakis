@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>dubwise.dubsbadhygiene</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+
+        <!-- Register catchbasin as a DBH water storage (tank). -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Arrakis_Catchbasin"]/comps</xpath>
+          <value>
+            <li Class="DubsBadHygiene.CompProperties_WaterStorage">
+              <WaterStorageCap>250</WaterStorageCap>
+            </li>
+          </value>
+        </li>
+
+        <!-- Register deathstill as a DBH water storage (so DBH sees its stored output). -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Arrakis_Deathstill"]/comps</xpath>
+          <value>
+            <li Class="DubsBadHygiene.CompProperties_WaterStorage">
+              <WaterStorageCap>400</WaterStorageCap>
+            </li>
+          </value>
+        </li>
+
+        <!-- Register windtrap as a DBH water inlet (water creator) so network-aware. -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Arrakis_Windtrap"]/comps</xpath>
+          <value>
+            <li Class="DubsBadHygiene.CompProperties_WaterInlet">
+              <Radius>5.0</Radius>
+            </li>
+          </value>
+        </li>
+
+      </operations>
+    </match>
+  </Operation>
+</Patch>

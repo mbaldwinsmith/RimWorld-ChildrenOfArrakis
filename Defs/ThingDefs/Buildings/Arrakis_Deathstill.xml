@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>Arrakis_Deathstill</defName>
+    <label>deathstill</label>
+    <description>Processes corpses to reclaim their water for the tribe. Prototype implementation; balance and ideology hooks pending.</description>
+    <thingClass>Building</thingClass>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Placeholders/Single</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.45</fillPercent>
+    <selectable>true</selectable>
+    <seeThroughFog>true</seeThroughFog>
+    <rotatable>true</rotatable>
+    <designationCategory>Production</designationCategory>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <statBases>
+      <WorkToBuild>3200</WorkToBuild>
+      <MaxHitPoints>280</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <Beauty>-10</Beauty>
+      <Mass>120</Mass>
+    </statBases>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <comps>
+      <li Class="ChildrenOfArrakis.CompProperties_Deathstill">
+        <capacity>400</capacity>
+        <initialWater>0</initialWater>
+        <sipAmount>5</sipAmount>
+        <waterPerCorpse>20</waterPerCorpse>
+      </li>
+    </comps>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_combatDangerous>false</ai_combatDangerous>
+    </building>
+  </ThingDef>
+</Defs>

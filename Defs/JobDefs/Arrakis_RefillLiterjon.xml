@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>Arrakis_RefillLiterjon</defName>
+    <driverClass>ChildrenOfArrakis.JobDriver_RefillLiterjon</driverClass>
+    <reportString>refilling a literjon.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+  </JobDef>
+</Defs>

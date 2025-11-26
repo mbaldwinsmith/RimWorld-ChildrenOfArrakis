@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>Arrakis_Stilltent</defName>
+    <label>stilltent</label>
+    <description>Portable sleeping tent that reduces thirst loss while resting. Prototype stats; balance and art pending.</description>
+    <thingClass>Building_Bed</thingClass>
+    <size>(2,1)</size>
+    <graphicData>
+      <texPath>Placeholders/Multi</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.2</fillPercent>
+    <selectable>true</selectable>
+    <seeThroughFog>true</seeThroughFog>
+    <rotatable>true</rotatable>
+    <designationCategory>Furniture</designationCategory>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>-1</Beauty>
+      <Mass>12</Mass>
+      <Comfort>0.75</Comfort>
+    </statBases>
+    <costList>
+      <Cloth>60</Cloth>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <WoodLog>40</WoodLog>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+      <ai_combatDangerous>false</ai_combatDangerous>
+      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_humanlike>true</bed_humanlike>
+      <bed_defaultMedical>false</bed_defaultMedical>
+      <bed_caravansCanUse>true</bed_caravansCanUse>
+      <claimable>true</claimable>
+      <bed_maxBodySize>2.5</bed_maxBodySize>
+    </building>
+    <comps>
+      <li Class="ChildrenOfArrakis.CompProperties_StillShelter">
+        <thirstRestorePerTickRare>0.02</thirstRestorePerTickRare>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

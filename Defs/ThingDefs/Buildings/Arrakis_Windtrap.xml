@@ -8,7 +8,7 @@
     <thingClass>Building</thingClass>
     <size>(2,2)</size>
     <graphicData>
-      <texPath>Things/Buildings/Arrakis_Windtrap</texPath>
+      <texPath>Placeholders/Single</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
@@ -17,11 +17,13 @@
       <Steel>80</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>30</pathCost>
-    <fillPercent>0.35</fillPercent>
-    <flammability>1.0</flammability>
+    <fillPercent>0.7</fillPercent>
     <selectable>true</selectable>
     <seeThroughFog>true</seeThroughFog>
     <rotatable>true</rotatable>
@@ -44,6 +46,13 @@
       <isEdifice>true</isEdifice>
       <ai_combatDangerous>false</ai_combatDangerous>
     </building>
+    <comps>
+      <li Class="ChildrenOfArrakis.CompProperties_Windtrap">
+        <waterPerDay>8</waterPerDay>
+        <outputRadius>10</outputRadius>
+        <outdoorsOnly>true</outdoorsOnly>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -53,7 +62,7 @@
     <thingClass>Building</thingClass>
     <size>(2,2)</size>
     <graphicData>
-      <texPath>Things/Buildings/Arrakis_Catchbasin</texPath>
+      <texPath>Placeholders/Single</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
@@ -62,9 +71,12 @@
       <Steel>90</Steel>
       <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
     <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <fillPercent>0.65</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.7</fillPercent>
     <selectable>true</selectable>
     <seeThroughFog>true</seeThroughFog>
     <rotatable>true</rotatable>
@@ -77,6 +89,13 @@
       <Beauty>-6</Beauty>
       <Mass>85</Mass>
     </statBases>
+    <comps>
+      <li Class="ChildrenOfArrakis.CompProperties_WaterTank">
+        <capacity>250</capacity>
+        <initialWater>0</initialWater>
+        <sipAmount>3</sipAmount>
+      </li>
+    </comps>
     <building>
       <isEdifice>true</isEdifice>
       <ai_combatDangerous>false</ai_combatDangerous>

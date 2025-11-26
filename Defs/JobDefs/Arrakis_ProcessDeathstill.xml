@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>Arrakis_ProcessDeathstill</defName>
+    <driverClass>ChildrenOfArrakis.JobDriver_ProcessDeathstill</driverClass>
+    <reportString>reclaiming water from a corpse.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+    <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+  </JobDef>
+</Defs>

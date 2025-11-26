@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ApparelBase">
+    <defName>Arrakis_StillsuitHood</defName>
+    <label>stillsuit hood</label>
+    <description>Hood component of the stillsuit, sealing in moisture while allowing vision. Uses a vacsuit shell as a stand-in.</description>
+    <techLevel>Industrial</techLevel>
+    <thingClass>Apparel</thingClass>
+    <graphicData>
+      <texPath>Placeholders/Apparel</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>ArrakisSurvival</li>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <careIfWornByCorpse>true</careIfWornByCorpse>
+    </apparel>
+    <statBases>
+      <WorkToMake>12000</WorkToMake>
+      <Mass>1.5</Mass>
+      <ArmorRating_Sharp>0.18</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.35</ArmorRating_Heat>
+      <Insulation_Cold>6</Insulation_Cold>
+      <Insulation_Heat>12</Insulation_Heat>
+      <EquipDelay>1.8</EquipDelay>
+      <StuffEffectMultiplierArmor>1.05</StuffEffectMultiplierArmor>
+      <Flammability>0.5</Flammability>
+      <MarketValue>180</MarketValue>
+    </statBases>
+    <costList>
+      <Cloth>24</Cloth>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="ChildrenOfArrakis.CompProperties_Stillsuit">
+        <thirstMultiplier>0.2</thirstMultiplier>
+        <bladderMultiplier>0.05</bladderMultiplier>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <researchPrerequisite>Electricity</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+</Defs>
