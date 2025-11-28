@@ -48,6 +48,24 @@ namespace ChildrenOfArrakis
             return true;
         }
 
+        public override string CompInspectStringExtra()
+        {
+            string baseString = base.CompInspectStringExtra();
+            string waterLine = $"Stored water: {storedWater:F1} / {Props.capacity:F1}";
+
+            if (Props.sipAmount > 0f)
+            {
+                waterLine += $" (sip size {Props.sipAmount:F1})";
+            }
+
+            if (string.IsNullOrEmpty(baseString))
+            {
+                return waterLine;
+            }
+
+            return baseString + "\n" + waterLine;
+        }
+
         public override void PostExposeData()
         {
             base.PostExposeData();
