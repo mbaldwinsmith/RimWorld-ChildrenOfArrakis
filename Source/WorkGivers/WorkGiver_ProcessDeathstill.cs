@@ -40,7 +40,7 @@ namespace ChildrenOfArrakis
             }
 
             var comp = deathstill.GetComp<CompDeathstill>();
-            return comp != null && comp.HasSpace(WaterYield(comp));
+            return comp != null && comp.CanAcceptCorpse();
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
@@ -52,11 +52,6 @@ namespace ChildrenOfArrakis
             }
 
             return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("Arrakis_ProcessDeathstill"), deathstill, t);
-        }
-
-        private static float WaterYield(CompDeathstill comp)
-        {
-            return comp?.Props is CompProperties_Deathstill props ? props.waterPerCorpse : JobDriver_ProcessDeathstill.DefaultWaterYield;
         }
 
         private Building FindAvailableDeathstill(Pawn pawn)
@@ -77,7 +72,7 @@ namespace ChildrenOfArrakis
                 }
 
                 var comp = b.GetComp<CompDeathstill>();
-                if (comp == null || !comp.HasSpace(WaterYield(comp)))
+                if (comp == null || !comp.CanAcceptCorpse())
                 {
                     continue;
                 }

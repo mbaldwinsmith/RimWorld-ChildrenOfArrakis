@@ -4,12 +4,12 @@
     <defName>Arrakis_Deathstill</defName>
     <label>deathstill</label>
     <description>Processes corpses to reclaim their water for the tribe. Prototype implementation; balance and ideology hooks pending.</description>
-    <thingClass>Building</thingClass>
-    <size>(2,2)</size>
+    <thingClass>ChildrenOfArrakis.Building_Deathstill</thingClass>
+    <size>(1,2)</size>
     <graphicData>
-      <texPath>Placeholders/Single</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <texPath>Things/Buildings/Deathstill/Deathstill</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,2)</drawSize>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -19,6 +19,7 @@
     <rotatable>true</rotatable>
     <designationCategory>Production</designationCategory>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <tickerType>Normal</tickerType>
     <statBases>
       <WorkToBuild>3200</WorkToBuild>
       <MaxHitPoints>280</MaxHitPoints>
@@ -39,6 +40,8 @@
         <initialWater>0</initialWater>
         <sipAmount>5</sipAmount>
         <waterPerCorpse>20</waterPerCorpse>
+        <processingTicks>600</processingTicks>
+        <fullTexPath>Things/Buildings/Deathstill/DeathstillFull</fullTexPath>
       </li>
     </comps>
     <building>

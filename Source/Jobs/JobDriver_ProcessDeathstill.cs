@@ -10,8 +10,6 @@ namespace ChildrenOfArrakis
     /// </summary>
     public class JobDriver_ProcessDeathstill : JobDriver
     {
-        public const float DefaultWaterYield = 20f;
-
         private Building Deathstill => job.GetTarget(TargetIndex.A).Thing as Building;
         private Corpse Corpse => job.GetTarget(TargetIndex.B).Thing as Corpse;
         private CompDeathstill Storage => Deathstill?.GetComp<CompDeathstill>();
@@ -32,16 +30,11 @@ namespace ChildrenOfArrakis
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.B);
             this.FailOn(() => Storage == null || Corpse == null);
-            this.FailOn(() => !Storage.HasSpace(WaterYield()));
+            this.FailOn(() => Storage != null && !Storage.CanAcceptCorpse());
 
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
             yield return Toils_Haul.CarryHauledThingToCell(TargetIndex.A);
-
-            var wait = Toils_General.Wait(600);
-            wait.WithProgressBarToilDelay(TargetIndex.A);
-            wait.FailOn(() => Storage == null || !Storage.HasSpace(WaterYield()));
-            yield return wait;
 
             yield return new Toil
             {
@@ -49,22 +42,17 @@ namespace ChildrenOfArrakis
                 {
                     if (Storage == null || Corpse == null)
                     {
+                        EndJobWith(JobCondition.Incompletable);
                         return;
                     }
 
-                    var yield = WaterYield();
-                    if (Storage.TryAddWater(yield))
+                    if (!Storage.StartProcessing(Corpse))
                     {
-                        Corpse.Destroy(DestroyMode.Vanish);
+                        EndJobWith(JobCondition.Incompletable);
                     }
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
-        }
-
-        private float WaterYield()
-        {
-            return Storage?.Props is CompProperties_Deathstill props ? props.waterPerCorpse : DefaultWaterYield;
         }
     }
 }

@@ -7,7 +7,7 @@
     <techLevel>Industrial</techLevel>
     <thingClass>Apparel</thingClass>
     <graphicData>
-      <texPath>Placeholders/Apparel</texPath>
+      <texPath>Things/Pawn/Humanlike/Apparel/Stillsuit</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
