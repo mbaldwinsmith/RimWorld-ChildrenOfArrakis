@@ -3,7 +3,7 @@
   <ThingDef ParentName="ApparelBase">
     <defName>Arrakis_StillsuitHood</defName>
     <label>stillsuit hood</label>
-    <description>Hood component of the stillsuit, sealing in moisture while allowing vision. Uses a vacsuit shell as a stand-in.</description>
+    <description>Hood component of the stillsuit, sealing in moisture while allowing vision. Stops sweat loss and routes moisture back to the suit.</description>
     <techLevel>Industrial</techLevel>
     <thingClass>Apparel</thingClass>
     <graphicData>

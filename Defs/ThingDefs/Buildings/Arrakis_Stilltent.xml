@@ -3,7 +3,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Stilltent</defName>
     <label>stilltent</label>
-    <description>Portable sleeping tent that reduces thirst loss while resting. Prototype stats; balance and art pending.</description>
+    <description>Portable sleeping tent that cushions Arrakis dehydration while resting. Offers light comfort and slow hydration recovery without full shelter bulk.</description>
     <thingClass>Building_Bed</thingClass>
     <size>(2,1)</size>
     <graphicData>
@@ -44,7 +44,7 @@
     </building>
     <comps>
       <li Class="ChildrenOfArrakis.CompProperties_StillShelter">
-        <thirstRestorePerTickRare>0.02</thirstRestorePerTickRare>
+        <thirstRestorePerTickRare>0.006</thirstRestorePerTickRare>
       </li>
     </comps>
   </ThingDef>

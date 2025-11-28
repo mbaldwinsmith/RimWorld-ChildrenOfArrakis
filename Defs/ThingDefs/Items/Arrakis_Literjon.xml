@@ -3,7 +3,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>Arrakis_Literjon</defName>
     <label>literjon</label>
-    <description>One-litre water vessel for Arrakis hydration jobs. Placeholder ingestible until full hydration system is wired.</description>
+    <description>One-litre water vessel for Arrakis hydration jobs. Used for personal rations and caravan runs away from catchbasins.</description>
     <thingClass>ThingWithComps</thingClass>
     <stackLimit>50</stackLimit>
     <graphicData>

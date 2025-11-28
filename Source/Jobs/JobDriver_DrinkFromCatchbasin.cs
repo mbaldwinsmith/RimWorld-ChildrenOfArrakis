@@ -54,7 +54,7 @@ namespace ChildrenOfArrakis
             var thirst = pawn.needs?.AllNeeds?.FirstOrDefault(n => n?.def?.defName == ThirstDefName);
             if (thirst != null)
             {
-                float restore = comp.Props.sipAmount * 0.04f; // 0.04 per water unit ~ modest thirst bump
+                float restore = comp.Props.sipAmount * 0.06f; // lean boost to make basins a viable fallback
                 thirst.CurLevel = Math.Min(thirst.MaxLevel, thirst.CurLevel + restore);
             }
         }
