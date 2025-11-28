@@ -3,7 +3,7 @@
   <ThingDef ParentName="ApparelBase">
     <defName>Arrakis_Stillsuit</defName>
     <label>stillsuit</label>
-    <description>Desert survival suit that recycles moisture and drastically slows thirst. Prototype stats; balance pending.</description>
+    <description>Desert survival suit that recycles moisture and drastically slows thirst. Essential sietch gear for long treks.</description>
     <techLevel>Industrial</techLevel>
     <thingClass>Apparel</thingClass>
     <graphicData>

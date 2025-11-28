@@ -3,7 +3,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Deathstill</defName>
     <label>deathstill</label>
-    <description>Processes corpses to reclaim their water for the tribe. Prototype implementation; balance and ideology hooks pending.</description>
+    <description>Processes corpses to reclaim their water for the tribe. A grim but sacred practice that keeps a sietch alive between storms.</description>
     <thingClass>ChildrenOfArrakis.Building_Deathstill</thingClass>
     <size>(1,2)</size>
     <graphicData>
@@ -39,7 +39,7 @@
         <capacity>400</capacity>
         <initialWater>0</initialWater>
         <sipAmount>5</sipAmount>
-        <waterPerCorpse>20</waterPerCorpse>
+        <waterPerCorpse>25</waterPerCorpse>
         <processingTicks>600</processingTicks>
         <fullTexPath>Things/Buildings/Deathstill/DeathstillFull</fullTexPath>
       </li>

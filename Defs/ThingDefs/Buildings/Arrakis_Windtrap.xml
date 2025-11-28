@@ -3,8 +3,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Windtrap</defName>
-    <label>windtrap (prototype)</label>
-    <description>Placeholder moisture condenser for Arrakis. Replace stats and comps once the hydration loop is wired.</description>
+    <label>windtrap</label>
+    <description>Wind-driven condenser that harvests trace moisture and pipes it into nearby catchbasins. Built to survive the open dunes.</description>
     <thingClass>Building</thingClass>
     <size>(1,1)</size>
     <graphicData>
@@ -36,10 +36,10 @@
       <li>Electricity</li>
     </researchPrerequisites>
     <statBases>
-      <WorkToBuild>3000</WorkToBuild>
-      <MaxHitPoints>240</MaxHitPoints>
+      <WorkToBuild>3200</WorkToBuild>
+      <MaxHitPoints>260</MaxHitPoints>
       <Flammability>1.0</Flammability>
-      <Beauty>-8</Beauty>
+      <Beauty>-7</Beauty>
       <Mass>60</Mass>
     </statBases>
     <building>
@@ -48,8 +48,8 @@
     </building>
     <comps>
       <li Class="ChildrenOfArrakis.CompProperties_Windtrap">
-        <waterPerDay>8</waterPerDay>
-        <outputRadius>10</outputRadius>
+        <waterPerDay>12</waterPerDay>
+        <outputRadius>12</outputRadius>
         <outdoorsOnly>true</outdoorsOnly>
       </li>
     </comps>
@@ -57,8 +57,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Catchbasin</defName>
-    <label>catchbasin (prototype)</label>
-    <description>Placeholder underground reservoir for Arrakis hydration. Replace with custom comp logic once water routing is ready.</description>
+    <label>catchbasin</label>
+    <description>Buried reservoir that stores condensed water. Pawns can sip directly or draw from it to refill literjons.</description>
     <thingClass>Building</thingClass>
     <size>(2,2)</size>
     <graphicData>
@@ -83,7 +83,7 @@
     <designationCategory>Misc</designationCategory>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <statBases>
-      <WorkToBuild>1800</WorkToBuild>
+      <WorkToBuild>2000</WorkToBuild>
       <MaxHitPoints>280</MaxHitPoints>
       <Flammability>0.8</Flammability>
       <Beauty>-6</Beauty>
@@ -91,9 +91,9 @@
     </statBases>
     <comps>
       <li Class="ChildrenOfArrakis.CompProperties_WaterTank">
-        <capacity>250</capacity>
-        <initialWater>0</initialWater>
-        <sipAmount>3</sipAmount>
+        <capacity>320</capacity>
+        <initialWater>15</initialWater>
+        <sipAmount>5</sipAmount>
       </li>
     </comps>
     <building>
