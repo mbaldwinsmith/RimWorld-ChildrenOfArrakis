@@ -78,6 +78,27 @@ namespace ChildrenOfArrakis
             }
         }
 
+        public override string CompInspectStringExtra()
+        {
+            string baseString = base.CompInspectStringExtra();
+
+            if (!IsProcessing || DeathstillProps == null)
+            {
+                return baseString;
+            }
+
+            float totalTicks = Math.Max(1, DeathstillProps.processingTicks);
+            float progress = 1f - processingTicksRemaining / totalTicks;
+            string processingLine = $"Processing corpse: {(progress * 100f):F0}% ({waterLeftToProduce:F1} water left)";
+
+            if (string.IsNullOrEmpty(baseString))
+            {
+                return processingLine;
+            }
+
+            return baseString + "\n" + processingLine;
+        }
+
         public override void PostExposeData()
         {
             base.PostExposeData();

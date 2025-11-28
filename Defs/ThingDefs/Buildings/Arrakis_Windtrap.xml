@@ -6,11 +6,11 @@
     <label>windtrap (prototype)</label>
     <description>Placeholder moisture condenser for Arrakis. Replace stats and comps once the hydration loop is wired.</description>
     <thingClass>Building</thingClass>
-    <size>(2,2)</size>
+    <size>(1,1)</size>
     <graphicData>
-      <texPath>Placeholders/Single</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <texPath>Things/Building/Temperature/Vent</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
     </graphicData>
     <costStuffCount>120</costStuffCount>
     <costList>
