@@ -4,11 +4,11 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Windtrap</defName>
     <label>windtrap</label>
-    <description>Wind-driven condenser that harvests trace moisture and pipes it into nearby catchbasins. Built to survive the open dunes.</description>
+    <description>Wind-driven condenser that harvests trace moisture and feeds the Dubs Bad Hygiene pipe network. Built to survive the open dunes.</description>
     <thingClass>Building</thingClass>
     <size>(1,1)</size>
     <graphicData>
-      <texPath>Things/Building/Temperature/Vent</texPath>
+      <texPath>Things/Buildings/Windtrap/Windtrap</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -52,13 +52,28 @@
         <outputRadius>12</outputRadius>
         <outdoorsOnly>true</outdoorsOnly>
       </li>
+      <li Class="ChildrenOfArrakis.CompProperties_WaterTank">
+        <capacity>200</capacity>
+        <initialWater>0</initialWater>
+        <sipAmount>0</sipAmount>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_Pipe">
+        <mode>Water</mode>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_WaterInlet">
+        <Radius>8</Radius>
+        <Capacity>2000</Capacity>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_WaterStorage">
+        <WaterStorageCap>200</WaterStorageCap>
+      </li>
     </comps>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
     <defName>Arrakis_Catchbasin</defName>
     <label>catchbasin</label>
-    <description>Buried reservoir that stores condensed water. Pawns can sip directly or draw from it to refill literjons.</description>
+    <description>Buried reservoir that stores condensed water. Pawns can sip directly or draw from it to refill literjons. Requires Dubs Bad Hygiene water pipes.</description>
     <thingClass>Building</thingClass>
     <size>(2,2)</size>
     <graphicData>
@@ -94,6 +109,12 @@
         <capacity>320</capacity>
         <initialWater>15</initialWater>
         <sipAmount>5</sipAmount>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_Pipe">
+        <mode>Water</mode>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_WaterStorage">
+        <WaterStorageCap>320</WaterStorageCap>
       </li>
     </comps>
     <building>

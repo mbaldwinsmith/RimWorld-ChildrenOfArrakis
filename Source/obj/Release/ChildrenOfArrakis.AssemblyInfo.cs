@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChildrenOfArrakis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59e29e25cb77d2bf6a70329a2f1936d7bf77188b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3923606adadd2b681a4b4dfa11e1b8e6905fce5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChildrenOfArrakis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChildrenOfArrakis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

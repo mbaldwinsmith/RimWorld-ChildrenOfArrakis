@@ -30,11 +30,11 @@ namespace ChildrenOfArrakis
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.B);
             this.FailOn(() => Storage == null || Corpse == null);
-            this.FailOn(() => Storage != null && !Storage.CanAcceptCorpse());
+            this.FailOn(() => Storage != null && (!Storage.CanAcceptCorpse() || !Storage.AllowsCorpse(Corpse)));
 
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
-            yield return Toils_Haul.CarryHauledThingToCell(TargetIndex.A);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
 
             yield return new Toil
             {
@@ -46,9 +46,17 @@ namespace ChildrenOfArrakis
                         return;
                     }
 
-                    if (!Storage.StartProcessing(Corpse))
+                    var corpse = Corpse;
+                    if (corpse == null || !Storage.AllowsCorpse(corpse) || !Storage.StartProcessing(corpse))
                     {
                         EndJobWith(JobCondition.Incompletable);
+                        return;
+                    }
+
+                    // ensure the carried thing is cleared if StartProcessing destroyed it
+                    if (pawn.carryTracker?.CarriedThing != null && pawn.carryTracker.CarriedThing.Destroyed)
+                    {
+                        pawn.carryTracker.innerContainer.ClearAndDestroyContents();
                     }
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant

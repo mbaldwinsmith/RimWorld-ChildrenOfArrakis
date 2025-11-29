@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using RimWorld;
 using HarmonyLib;
 using Verse;
 
@@ -13,6 +14,9 @@ namespace ChildrenOfArrakis
         private int processingTicksRemaining;
         private float waterLeftToProduce;
         private bool processing;
+        private bool allowHumanlike = true;
+        private bool allowAnimals = true;
+        private bool allowRotten;
 
         private static readonly Type MapMeshFlagType = AccessTools.TypeByName("Verse.MapMeshFlag");
         private static readonly MethodInfo MapMeshDirtyMethod = MapMeshFlagType == null
@@ -23,15 +27,49 @@ namespace ChildrenOfArrakis
 
         public bool IsProcessing => processing;
         public string FullTexPath => DeathstillProps?.fullTexPath;
+        public bool AllowHumanlike { get => allowHumanlike; set => allowHumanlike = value; }
+        public bool AllowAnimals { get => allowAnimals; set => allowAnimals = value; }
+        public bool AllowRotten { get => allowRotten; set => allowRotten = value; }
 
         public bool CanAcceptCorpse()
         {
             return !IsProcessing && DeathstillProps != null && DeathstillProps.waterPerCorpse > 0f && HasSpace(DeathstillProps.waterPerCorpse);
         }
 
+        public bool AllowsCorpse(Corpse corpse)
+        {
+            if (corpse == null || corpse.InnerPawn == null)
+            {
+                return false;
+            }
+
+            if (!AllowRotten && corpse.GetRotStage() != RotStage.Fresh)
+            {
+                return false;
+            }
+
+            var race = corpse.InnerPawn.RaceProps;
+            if (race == null)
+            {
+                return false;
+            }
+
+            if (race.Humanlike)
+            {
+                return AllowHumanlike;
+            }
+            if (race.Animal)
+            {
+                return AllowAnimals;
+            }
+
+            // Never process mechanoids or other exotic types
+            return false;
+        }
+
         public bool StartProcessing(Corpse corpse)
         {
-            if (corpse == null || DeathstillProps == null || !CanAcceptCorpse())
+            if (corpse == null || DeathstillProps == null || !CanAcceptCorpse() || !AllowsCorpse(corpse))
             {
                 return false;
             }
@@ -105,6 +143,9 @@ namespace ChildrenOfArrakis
             Scribe_Values.Look(ref processing, "deathstillProcessing", false);
             Scribe_Values.Look(ref processingTicksRemaining, "deathstillTicksRemaining", 0);
             Scribe_Values.Look(ref waterLeftToProduce, "deathstillWaterLeft", 0f);
+            Scribe_Values.Look(ref allowHumanlike, "deathstillAllowHumanlike", true);
+            Scribe_Values.Look(ref allowAnimals, "deathstillAllowAnimals", true);
+            Scribe_Values.Look(ref allowRotten, "deathstillAllowRotten", false);
         }
 
         private void FinishProcessing()

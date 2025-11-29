@@ -34,8 +34,7 @@ namespace ChildrenOfArrakis
 
             amount *= CalcEnvironmentFactor(parent.Map);
 
-            var basin = FindCatchbasinWithSpace();
-            basin?.TryGetComp<CompArrakisWaterStorage>()?.TryAddWater(amount);
+            parent.TryGetComp<CompArrakisWaterStorage>()?.TryAddWater(amount);
         }
 
         public override string CompInspectStringExtra()
@@ -43,39 +42,9 @@ namespace ChildrenOfArrakis
             float envFactor = parent?.Map == null ? 1f : CalcEnvironmentFactor(parent.Map);
             float adjustedPerDay = Props.waterPerDay * envFactor;
             string baseLine = $"Water/day: {adjustedPerDay:F1} (env x{envFactor:F2})";
-            string targetLine = $"Feeds catchbasins within {Props.outputRadius:F0} tiles";
+            string targetLine = $"Outputs to DBH pipes; connect water network within {Props.outputRadius:F0} tiles";
 
             return baseLine + "\n" + targetLine;
-        }
-
-        private Thing FindCatchbasinWithSpace()
-        {
-            IEnumerable<IntVec3> cells = GenRadial.RadialCellsAround(parent.Position, Props.outputRadius, true);
-            foreach (var cell in cells)
-            {
-                if (!cell.InBounds(parent.Map))
-                {
-                    continue;
-                }
-
-                List<Thing> things = cell.GetThingList(parent.Map);
-                for (int i = 0; i < things.Count; i++)
-                {
-                    var thing = things[i];
-                    if (thing.def?.defName != "Arrakis_Catchbasin")
-                    {
-                        continue;
-                    }
-
-                    var comp = thing.TryGetComp<CompArrakisWaterStorage>();
-                    if (comp != null && comp.HasSpace(Props.WaterPerTickRare))
-                    {
-                        return thing;
-                    }
-                }
-            }
-
-            return null;
         }
 
         private float CalcEnvironmentFactor(Map map)

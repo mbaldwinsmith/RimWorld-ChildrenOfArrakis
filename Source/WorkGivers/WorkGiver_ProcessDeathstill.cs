@@ -13,84 +13,85 @@ namespace ChildrenOfArrakis
 
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            return pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Corpse);
+            return pawn.Map.listerThings.ThingsOfDef(DeathstillDef);
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (DeathstillDef == null || t is not Corpse corpse || corpse.Destroyed)
+            if (DeathstillDef == null || t is not Building building || building.def != DeathstillDef)
             {
                 return false;
             }
 
-            if (corpse.IsForbidden(pawn) || !pawn.CanReach(corpse, PathEndMode.Touch, Danger.Deadly))
+            if (building.IsForbidden(pawn) || !pawn.CanReach(building, PathEndMode.Touch, Danger.Deadly))
             {
                 return false;
             }
 
-            var deathstill = FindAvailableDeathstill(pawn);
-            if (deathstill == null)
+            if (!pawn.CanReserve(building))
             {
                 return false;
             }
 
-            if (!pawn.CanReserve(corpse))
+            var comp = building.GetComp<CompDeathstill>();
+            if (comp == null || comp.IsProcessing || !comp.CanAcceptCorpse())
             {
                 return false;
             }
 
-            var comp = deathstill.GetComp<CompDeathstill>();
-            return comp != null && comp.CanAcceptCorpse();
+            var corpse = FindClosestAllowedCorpse(pawn, comp);
+            return corpse != null;
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            var deathstill = FindAvailableDeathstill(pawn);
-            if (deathstill == null)
+            if (t is not Building building)
             {
                 return null;
             }
 
-            return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("Arrakis_ProcessDeathstill"), deathstill, t);
+            var comp = building.GetComp<CompDeathstill>();
+            var corpse = comp == null ? null : FindClosestAllowedCorpse(pawn, comp);
+            if (corpse == null)
+            {
+                return null;
+            }
+
+            return JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("Arrakis_ProcessDeathstill"), building, corpse);
         }
 
-        private Building FindAvailableDeathstill(Pawn pawn)
+        private Corpse FindClosestAllowedCorpse(Pawn pawn, CompDeathstill comp)
         {
-            if (DeathstillDef == null)
+            if (comp == null || comp.parent == null || !comp.CanAcceptCorpse())
             {
                 return null;
             }
 
-            var list = pawn.Map.listerThings.ThingsOfDef(DeathstillDef);
-            Building best = null;
-            float bestDist = float.MaxValue;
-            foreach (var thing in list)
+            bool Validator(Thing x)
             {
-                if (thing is not Building b || b.IsForbidden(pawn))
+                if (x is not Corpse corpse || corpse.Destroyed)
                 {
-                    continue;
+                    return false;
                 }
 
-                var comp = b.GetComp<CompDeathstill>();
-                if (comp == null || !comp.CanAcceptCorpse())
+                if (corpse.IsForbidden(pawn) || !pawn.CanReserve(corpse))
                 {
-                    continue;
+                    return false;
                 }
 
-                if (!pawn.CanReserve(b))
-                {
-                    continue;
-                }
-
-                float dist = (pawn.Position - b.Position).LengthHorizontalSquared;
-                if (dist < bestDist)
-                {
-                    bestDist = dist;
-                    best = b;
-                }
+                return comp.AllowsCorpse(corpse);
             }
 
-            return best;
+            var found = GenClosest.ClosestThingReachable(
+                pawn.Position,
+                pawn.Map,
+                ThingRequest.ForGroup(ThingRequestGroup.Corpse),
+                PathEndMode.Touch,
+                TraverseParms.For(pawn),
+                maxDistance: 9999f,
+                validator: Validator);
+
+            return found as Corpse;
         }
     }
 }

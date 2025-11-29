@@ -9,7 +9,7 @@
     <graphicData>
       <texPath>Things/Buildings/Deathstill/Deathstill</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1,2)</drawSize>
+      <drawSize>(1.6,2.6)</drawSize>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -34,6 +34,9 @@
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
+    <inspectorTabs>
+      <li>ChildrenOfArrakis.ITab_Deathstill</li>
+    </inspectorTabs>
     <comps>
       <li Class="ChildrenOfArrakis.CompProperties_Deathstill">
         <capacity>400</capacity>
@@ -42,6 +45,12 @@
         <waterPerCorpse>25</waterPerCorpse>
         <processingTicks>600</processingTicks>
         <fullTexPath>Things/Buildings/Deathstill/DeathstillFull</fullTexPath>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_Pipe">
+        <mode>Water</mode>
+      </li>
+      <li Class="DubsBadHygiene.CompProperties_WaterStorage">
+        <WaterStorageCap>400</WaterStorageCap>
       </li>
     </comps>
     <building>
