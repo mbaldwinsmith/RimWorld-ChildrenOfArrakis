@@ -1,0 +1,32 @@
+# Build output directories
+bin/
+obj/
+**/bin/
+**/obj/
+Source/obj/
+Source/bin/
+
+# IDE/user-specific files
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# Generated build intermediates
+*.pdb
+*.mdb
+*.cache
+*.tmp
+*.log
+*.ilk
+*.tlog
+project.assets.json
+project.nuget.cache
+*.nuget.g.props
+*.nuget.g.targets
+*.csproj.nuget.dgspec.json
+
+# Assemblies: keep shipped DLLs and placeholder only
+Assemblies/*
+!Assemblies/.gitkeep
+!Assemblies/*.dll
