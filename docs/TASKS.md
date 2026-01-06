@@ -475,3 +475,15 @@ Agents:
 - Windtraps, deathstills, catchbasins operational  
 - All assets load without errors  
 - Documentation complete  
+
+---
+
+# 12. CODEX SYNTHESIS
+
+## 12.1 Kerygma Codex Core Summary
+**Status:** Completed
+**Goal:** Create root synthesis document (KERYGMA_CODEX_CORE.md) summarizing core grammar, operators, safety architecture, and usage.
+
+### Follow-ups / Gaps
+- Add missing canon sources (00_CONSTITUTION.md, 02_FORMALISM.md, 03_GLOSSARY.md, 04_PASTORAL_GUARDRAILS.md, 05_CORE_OPERATORS.md, 06_TESTS_AND_INVARIANTS.md, 07_fundamental_practices/ + _INDEX.md) to the repository so the synthesis can be cross-referenced and kept consistent.
+- Align future revisions of KERYGMA_CODEX_CORE.md with the canonical files once they exist, including term-level cross-links.
